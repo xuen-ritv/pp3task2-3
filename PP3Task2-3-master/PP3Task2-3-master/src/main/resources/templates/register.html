@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Занимает всю высоту экрана */
+            box-sizing: border-box; /* Включает отступы и границы в размеры */
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Вертикальная ориентация */
+            max-width: 400px; /* Максимальная ширина формы */
+            width: 100%; /* Адаптивная ширина */
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px; /* Добавлено отступ снизу */
+        }
+        div {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%; /* Полная ширина контейнера */
+            box-sizing: border-box; /* Включает отступы и границы в размеры */
+        }
+        label {
+            margin-bottom: 5px;
+            display: block; /* Показать метку как блочный элемент */
+            font-weight: bold;
+        }
+        input {
+            width: 100%; /* Полная ширина для ввода */
+            padding: 10px;
+            margin-bottom: 15px; /* Отступ между полями */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Включает отступы и границы в ширину */
+        }
+        button {
+            width: 100%; /* Кнопка на всю ширину */
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            cursor: pointer; /* Курсор указателя при наведении */
+            transition: background-color 0.3s; /* Плавный переход для цвета фона */
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            color: #007BFF; /* Цвет текста ссылки */
+            text-decoration: none;
+            transition: color 0.3s; /* Плавный переход для цвета текста */
+        }
+        a:hover {
+            color: #0056b3; /* Цвет при наведении */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Register</h2>
+    <form action="/register" method="POST" th:object="${user}">
+        <label for="username">Username:</label>
+        <input type="text" id="username" th:field="*{username}" required/>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" th:field="*{password}" required/>
+
+        <button type="submit">Register</button>
+    </form>
+    <a href="/login">Back to login</a>
+</div>
+</body>
+</html>
